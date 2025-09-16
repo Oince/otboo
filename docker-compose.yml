@@ -31,16 +31,17 @@ services:
       - ./src/main/resources/static:/usr/share/nginx/html:ro
     depends_on:
       - backend1
+      - backend2
     networks:
       - otboo-network
 
   db:
-    image: postgres:${POSTGRES_VERSION}
+    image: postgres:17-alpine
     container_name: otboo-db
     env_file:
       - .env.docker
     ports:
-      - "${DB_PORT}:5432"
+      - "5432:5432"
     volumes:
       - otboo-postgres-data:/var/lib/postgresql/data
       - ./src/main/resources/schema.sql:/docker-entrypoint-initdb.d/schema.sql
@@ -50,10 +51,13 @@ services:
   broker:
     image: apache/kafka:4.0.0
     container_name: otboo-broker
+    user: root
     ports:
       - "9092:9092"
     networks:
       - otboo-network
+    volumes:
+      - otboo-kafka-data:/tmp/kraft-combined-logs
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT,CONTROLLER:PLAINTEXT
@@ -79,8 +83,16 @@ services:
       - broker
     container_name: otboo-backend-1
 
+  backend2:
+    <<: *backend-common
+    depends_on:
+      - db
+      - broker
+    container_name: otboo-backend-2
+
 volumes:
   otboo-postgres-data:
+  otboo-kafka-data:
 
 networks:
   otboo-network:
