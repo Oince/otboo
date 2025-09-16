@@ -43,7 +43,7 @@ services:
       - "${DB_PORT}:5432"
     volumes:
       - otboo-postgres-data:/var/lib/postgresql/data
-      - ./db/init/schema.sql:/docker-entrypoint-initdb.d/schema.sql
+      - ./src/main/resources/schema.sql:/docker-entrypoint-initdb.d/schema.sql
     networks:
       - otboo-network
 
@@ -74,6 +74,9 @@ services:
 
   backend1:
     <<: *backend-common
+    depends_on:
+      - db
+      - broker
     container_name: otboo-backend-1
 
 volumes:

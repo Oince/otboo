@@ -13,7 +13,7 @@ spring:
   #JPA
   jpa:
     hibernate:
-      ddl-auto: validate
+      ddl-auto: update
     database: postgresql
     show-sql: false
     properties:
@@ -32,9 +32,6 @@ spring:
   batch:
     jdbc:
       initialize-schema: always   # Batch 테이블 자동 생성
-
-  kafka:
-    bootstrap-servers: localhost:9092
 
 # logging
 logging:
