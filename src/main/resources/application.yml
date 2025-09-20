@@ -9,6 +9,26 @@ spring:
     multipart:
       enabled: true
 
+  # DB
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+
+  jpa:
+    database: postgresql
+    show-sql: false
+    properties:
+      hibernate:
+        generate_statistics: false
+        open-in-view: false
+        cache:
+          use_second_level_cache: false
+
+  transaction:
+    default-timeout: 30
+
   jackson:
     time-zone: Asia/Seoul
 
@@ -86,6 +106,13 @@ spring:
 server:
   shutdown: graceful
   forward-headers-strategy: native
+  tomcat:
+    uri-encoding: UTF-8
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
 
 weather:
   api-url: ${WEATHER_INFO_API_URL}
@@ -111,7 +138,6 @@ resetpassword:
 sse:
   event-queue-capacity: ${SSE_EVENT_QUEUE_CAPACITY:1000}
   timeout: ${SSE_TIMEOUT:300000}
-
 
 app:
   admin:
