@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
@@ -31,8 +32,11 @@ public class AdminUserInitializer implements ApplicationRunner {
 
   @Override
   public void run(ApplicationArguments args) throws Exception {
+    if (userRepository.existsByEmail(adminEmail) || userRepository.existsByName(adminName)) {
+      log.info("Admin User({}) Already Exists", adminEmail);
+    }
 
-    if (!userRepository.existsByEmail(adminEmail) && !userRepository.existsByName(adminName)) {
+    try {
       userRepository.save(
           User.builder()
               .name(adminName)
@@ -42,7 +46,7 @@ public class AdminUserInitializer implements ApplicationRunner {
               .build()
       );
       log.info("Admin User Created: {}", adminEmail);
-    } else {
+    } catch (DataIntegrityViolationException e) {
       log.info("Admin User({}) Already Exists", adminEmail);
     }
   }
