@@ -8,7 +8,7 @@ x-backend-common: &backend-common
       PROJECT_VERSION: ${PROJECT_VERSION}
   image: ${PROJECT_NAME}:local-slim
   env_file:
-    - .env.docker
+    - app.env
   expose:
     - "8080"
   depends_on:
@@ -24,7 +24,7 @@ services:
     ports:
       - "3000:80"
     env_file:
-      - .env.docker
+      - app.env
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
       - ./nginx/conf.d/local.conf:/etc/nginx/conf.d/default.conf
@@ -39,7 +39,7 @@ services:
     image: postgres:17-alpine
     container_name: otboo-db
     env_file:
-      - .env.docker
+      - app.env
     ports:
       - "5432:5432"
     volumes:
@@ -47,6 +47,21 @@ services:
       - ./src/main/resources/schema.sql:/docker-entrypoint-initdb.d/schema.sql
     networks:
       - otboo-network
+
+  rabbitmq:
+    image: rabbitmq:4.1.4-management-alpine
+    container_name: otboo-rabbitmq
+    env_file:
+      - app.env
+    hostname: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - otboo-rabbitmq-data:/var/lib/rabbitmq
+    networks:
+      - otboo-network
+    restart: unless-stopped
 
   broker:
     image: apache/kafka:4.0.0
@@ -81,6 +96,7 @@ services:
     depends_on:
       - db
       - broker
+      - rabbitmq
     container_name: otboo-backend-1
 
   backend2:
@@ -88,11 +104,13 @@ services:
     depends_on:
       - db
       - broker
+      - rabbitmq
     container_name: otboo-backend-2
 
 volumes:
   otboo-postgres-data:
   otboo-kafka-data:
+  otboo-rabbitmq-data:
 
 networks:
   otboo-network:
