@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 @RabbitListener(bindings = @QueueBinding(
-    value = @Queue(value = "", durable = "false", autoDelete = "true", exclusive = "true"),
+    value = @Queue(durable = "false", autoDelete = "true", exclusive = "true"),
     exchange = @Exchange(value = "${spring.rabbitmq.properties.exchanges.dm-fanout}",
         type = ExchangeTypes.FANOUT)
 ))
