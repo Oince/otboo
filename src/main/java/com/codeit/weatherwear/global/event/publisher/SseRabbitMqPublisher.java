@@ -24,18 +24,18 @@ public class SseRabbitMqPublisher {
   @Async("eventExecutor")
   @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
   public void handleNotificationCreatedEvent(NotificationCreatedEvent event) {
-    NotificationDto notificationDto = event.notificationDto();
-    SseMessage sseMessage = SseMessage.create(notificationDto.receiverId(), notificationDto);
-    rabbitTemplate.convertAndSend(rabbitMqProperties.exchanges().sseFanout(), "", sseMessage);
+    sendToSseExchange(event.notificationDto());
   }
 
   @Async("eventExecutor")
   @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
   public void handleMultipleNotificationCreatedEvent(MultipleNotificationCreatedEvent event) {
-    event.notificationDtos().stream()
-        .map(notificationDto -> SseMessage.create(notificationDto.receiverId(), notificationDto))
-        .forEach(sseMessage -> rabbitTemplate
-            .convertAndSend(rabbitMqProperties.exchanges().sseFanout(), "", sseMessage));
+    event.notificationDtos().forEach(this::sendToSseExchange);
+  }
+
+  private void sendToSseExchange(NotificationDto notificationDto) {
+    SseMessage sseMessage = SseMessage.create(notificationDto.receiverId(), notificationDto);
+    rabbitTemplate.convertAndSend(rabbitMqProperties.exchanges().sseFanout(), "", sseMessage);
   }
 
 }

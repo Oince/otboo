@@ -3,6 +3,7 @@ package com.codeit.weatherwear.global.event.publisher;
 import com.codeit.weatherwear.global.event.dto.ClothAttributeAddedEvent;
 import com.codeit.weatherwear.global.event.dto.ClothAttributeUpdatedEvent;
 import com.codeit.weatherwear.global.event.dto.DirectMessageReceivedEvent;
+import com.codeit.weatherwear.global.event.dto.DomainEvent;
 import com.codeit.weatherwear.global.event.dto.FeedLikeEvent;
 import com.codeit.weatherwear.global.event.dto.FolloweeFeedPostedEvent;
 import com.codeit.weatherwear.global.event.dto.NewFeedCommentEvent;
@@ -29,62 +30,58 @@ public class NotificationRabbitMqPublisher {
   @Async("eventExecutor")
   @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
   public void handleNewFollowerEvent(NewFollowerEvent event) {
-    rabbitTemplate.convertAndSend(rabbitMqProperties.exchanges().notification(),
-        rabbitMqProperties.routingKeys().notification(), event);
+    sendToNotificationExchange(event);
   }
 
   @Async("eventExecutor")
   @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
   public void handleClothAttributeAddedEvent(ClothAttributeAddedEvent event) {
-    rabbitTemplate.convertAndSend(rabbitMqProperties.exchanges().notification(),
-        rabbitMqProperties.routingKeys().notification(), event);
+    sendToNotificationExchange(event);
   }
 
   @Async("eventExecutor")
   @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
   public void handleClothAttributeUpdatedEvent(ClothAttributeUpdatedEvent event) {
-    rabbitTemplate.convertAndSend(rabbitMqProperties.exchanges().notification(),
-        rabbitMqProperties.routingKeys().notification(), event);
+    sendToNotificationExchange(event);
   }
 
   @Async("eventExecutor")
   @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
   public void handleDirectMessageReceivedEvent(DirectMessageReceivedEvent event) {
-    rabbitTemplate.convertAndSend(rabbitMqProperties.exchanges().notification(),
-        rabbitMqProperties.routingKeys().notification(), event);
+    sendToNotificationExchange(event);
   }
 
   @Async("eventExecutor")
   @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
   public void handleFeedLikeEvent(FeedLikeEvent event) {
-    rabbitTemplate.convertAndSend(rabbitMqProperties.exchanges().notification(),
-        rabbitMqProperties.routingKeys().notification(), event);
+    sendToNotificationExchange(event);
   }
 
   @Async("eventExecutor")
   @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
   public void handleNewFeedCommentEvent(NewFeedCommentEvent event) {
-    rabbitTemplate.convertAndSend(rabbitMqProperties.exchanges().notification(),
-        rabbitMqProperties.routingKeys().notification(), event);
+    sendToNotificationExchange(event);
   }
 
   @Async("eventExecutor")
   @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
   public void handleFolloweeFeedPostedEvent(FolloweeFeedPostedEvent event) {
-    rabbitTemplate.convertAndSend(rabbitMqProperties.exchanges().notification(),
-        rabbitMqProperties.routingKeys().notification(), event);
+    sendToNotificationExchange(event);
   }
 
   @Async("eventExecutor")
   @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
   public void handleRoleChangedEvent(RoleChangedEvent event) {
-    rabbitTemplate.convertAndSend(rabbitMqProperties.exchanges().notification(),
-        rabbitMqProperties.routingKeys().notification(), event);
+    sendToNotificationExchange(event);
   }
 
   @Async("eventExecutor")
   @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
   public void handleWeatherAlertEvent(WeatherAlertEvent event) {
+    sendToNotificationExchange(event);
+  }
+
+  private void sendToNotificationExchange(DomainEvent event) {
     rabbitTemplate.convertAndSend(rabbitMqProperties.exchanges().notification(),
         rabbitMqProperties.routingKeys().notification(), event);
   }
