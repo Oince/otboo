@@ -26,6 +26,7 @@ public class SseRabbitMqListener {
 
   @RabbitHandler
   public void handleSseSendEvent(SseMessage sseMessage) {
+    log.debug("sse 전송 이벤트 수신. {}", sseMessage.getEventId());
     sseService.send(sseMessage);
   }
 }
