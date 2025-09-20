@@ -27,7 +27,7 @@ public class SseRabbitMqPublisher {
     NotificationDto notificationDto = event.notificationDto();
     SseMessage sseMessage = SseMessage.create(notificationDto.receiverId(), notificationDto);
     rabbitTemplate.convertAndSend(rabbitMqProperties.exchange(),
-        rabbitMqProperties.queues().sseSent(), sseMessage);
+        rabbitMqProperties.routingKeys().sseSent(), sseMessage);
   }
 
   @Async("eventExecutor")
@@ -36,7 +36,7 @@ public class SseRabbitMqPublisher {
     event.notificationDtos().stream()
         .map(notificationDto -> SseMessage.create(notificationDto.receiverId(), notificationDto))
         .forEach(sseMessage -> rabbitTemplate.convertAndSend(rabbitMqProperties.exchange(),
-            rabbitMqProperties.queues().sseSent(), sseMessage));
+            rabbitMqProperties.routingKeys().sseSent(), sseMessage));
   }
 
 }

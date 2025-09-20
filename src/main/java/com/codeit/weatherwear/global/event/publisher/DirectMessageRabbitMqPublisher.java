@@ -22,7 +22,7 @@ public class DirectMessageRabbitMqPublisher {
   @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
   public void handleDirectMessageReceivedEvent(DirectMessageReceivedEvent event) {
     rabbitTemplate.convertAndSend(rabbitMqProperties.exchange(),
-        rabbitMqProperties.queues().dmReceived(), event);
+        rabbitMqProperties.routingKeys().dmReceived(), event);
   }
 
 }
