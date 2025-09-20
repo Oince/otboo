@@ -87,15 +87,14 @@ spring:
     username: ${RABBITMQ_USERNAME}
     password: ${RABBITMQ_PASSWORD}
     properties:
-      exchange: "weatherwear.exchange"
+      exchanges:
+        notification: "weatherwear.notification"
+        dm-fanout: "weatherwear.direct_message_received"
+        sse-fanout: "weatherwear.sse_sent"
       queues:
-        notifications: "weatherwear.notifications"
-        dm-received: "weatherwear.direct_message_received"
-        sse-sent: "weatherwear.sse_sent"
+        notification: "weatherwear.notifications"
       routing-keys:
         notification: "key.notification"
-        dm-received: "key.dm"
-        sse-sent: "key.sse"
 
 server:
   shutdown: graceful

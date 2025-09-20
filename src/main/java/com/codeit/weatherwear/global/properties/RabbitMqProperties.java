@@ -4,21 +4,23 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @ConfigurationProperties(prefix = "spring.rabbitmq.properties")
 public record RabbitMqProperties(
-    String exchange,
+    Exchanges exchanges,
     Queues queues,
     RoutingKeys routingKeys
 ) {
 
+  public record Exchanges(
+      String notification,
+      String dmFanout,
+      String sseFanout
+  ) {}
+
   public record Queues(
-      String notifications,
-      String dmReceived,
-      String sseSent
+      String notification
   ) {}
 
   public record RoutingKeys(
-      String notification,
-      String dmReceived,
-      String sseSent
+      String notification
   ) {}
 
 }

@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
+import org.springframework.amqp.core.FanoutExchange;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
@@ -18,26 +19,26 @@ public class RabbitMqConfig {
 
   private final RabbitMqProperties rabbitMqProperties;
 
-  // exchange
+  // exchanges
   @Bean
-  TopicExchange exchange() {
-    return new TopicExchange(rabbitMqProperties.exchange());
+  public TopicExchange exchange() {
+    return new TopicExchange(rabbitMqProperties.exchanges().notification());
+  }
+
+  @Bean
+  public FanoutExchange dmFanoutExchange() {
+    return new FanoutExchange(rabbitMqProperties.exchanges().dmFanout());
+  }
+
+  @Bean
+  public FanoutExchange sseFanoutExchange() {
+    return new FanoutExchange(rabbitMqProperties.exchanges().sseFanout());
   }
 
   // queues
   @Bean
   Queue notificationQueue() {
-    return new Queue(rabbitMqProperties.queues().notifications(), true);
-  }
-
-  @Bean
-  Queue dmReceivedQueue() {
-    return new Queue(rabbitMqProperties.queues().dmReceived(), true);
-  }
-
-  @Bean
-  Queue sseSentQueue() {
-    return new Queue(rabbitMqProperties.queues().sseSent(), true);
+    return new Queue(rabbitMqProperties.queues().notification(), true);
   }
 
   //binding
@@ -47,22 +48,6 @@ public class RabbitMqConfig {
         .bind(notificationQueue)
         .to(exchange)
         .with(rabbitMqProperties.routingKeys().notification());
-  }
-
-  @Bean
-  public Binding dmReceivedBinding(Queue dmReceivedQueue, TopicExchange exchange) {
-    return BindingBuilder
-        .bind(dmReceivedQueue)
-        .to(exchange)
-        .with(rabbitMqProperties.routingKeys().dmReceived());
-  }
-
-  @Bean
-  public Binding sseSentBinding(Queue sseSentQueue, TopicExchange exchange) {
-    return BindingBuilder
-        .bind(sseSentQueue)
-        .to(exchange)
-        .with(rabbitMqProperties.routingKeys().sseSent());
   }
 
   @Bean

@@ -21,7 +21,7 @@ import org.springframework.transaction.event.TransactionalEventListener;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class NotificationRabbitmqPublisher {
+public class NotificationRabbitMqPublisher {
 
   private final RabbitTemplate rabbitTemplate;
   private final RabbitMqProperties rabbitMqProperties;
@@ -29,63 +29,63 @@ public class NotificationRabbitmqPublisher {
   @Async("eventExecutor")
   @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
   public void handleNewFollowerEvent(NewFollowerEvent event) {
-    rabbitTemplate.convertAndSend(rabbitMqProperties.exchange(),
+    rabbitTemplate.convertAndSend(rabbitMqProperties.exchanges().notification(),
         rabbitMqProperties.routingKeys().notification(), event);
   }
 
   @Async("eventExecutor")
   @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
   public void handleClothAttributeAddedEvent(ClothAttributeAddedEvent event) {
-    rabbitTemplate.convertAndSend(rabbitMqProperties.exchange(),
+    rabbitTemplate.convertAndSend(rabbitMqProperties.exchanges().notification(),
         rabbitMqProperties.routingKeys().notification(), event);
   }
 
   @Async("eventExecutor")
   @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
   public void handleClothAttributeUpdatedEvent(ClothAttributeUpdatedEvent event) {
-    rabbitTemplate.convertAndSend(rabbitMqProperties.exchange(),
+    rabbitTemplate.convertAndSend(rabbitMqProperties.exchanges().notification(),
         rabbitMqProperties.routingKeys().notification(), event);
   }
 
   @Async("eventExecutor")
   @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
   public void handleDirectMessageReceivedEvent(DirectMessageReceivedEvent event) {
-    rabbitTemplate.convertAndSend(rabbitMqProperties.exchange(),
+    rabbitTemplate.convertAndSend(rabbitMqProperties.exchanges().notification(),
         rabbitMqProperties.routingKeys().notification(), event);
   }
 
   @Async("eventExecutor")
   @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
   public void handleFeedLikeEvent(FeedLikeEvent event) {
-    rabbitTemplate.convertAndSend(rabbitMqProperties.exchange(),
+    rabbitTemplate.convertAndSend(rabbitMqProperties.exchanges().notification(),
         rabbitMqProperties.routingKeys().notification(), event);
   }
 
   @Async("eventExecutor")
   @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
   public void handleNewFeedCommentEvent(NewFeedCommentEvent event) {
-    rabbitTemplate.convertAndSend(rabbitMqProperties.exchange(),
+    rabbitTemplate.convertAndSend(rabbitMqProperties.exchanges().notification(),
         rabbitMqProperties.routingKeys().notification(), event);
   }
 
   @Async("eventExecutor")
   @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
   public void handleFolloweeFeedPostedEvent(FolloweeFeedPostedEvent event) {
-    rabbitTemplate.convertAndSend(rabbitMqProperties.exchange(),
+    rabbitTemplate.convertAndSend(rabbitMqProperties.exchanges().notification(),
         rabbitMqProperties.routingKeys().notification(), event);
   }
 
   @Async("eventExecutor")
   @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
   public void handleRoleChangedEvent(RoleChangedEvent event) {
-    rabbitTemplate.convertAndSend(rabbitMqProperties.exchange(),
+    rabbitTemplate.convertAndSend(rabbitMqProperties.exchanges().notification(),
         rabbitMqProperties.routingKeys().notification(), event);
   }
 
   @Async("eventExecutor")
   @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
   public void handleWeatherAlertEvent(WeatherAlertEvent event) {
-    rabbitTemplate.convertAndSend(rabbitMqProperties.exchange(),
+    rabbitTemplate.convertAndSend(rabbitMqProperties.exchanges().notification(),
         rabbitMqProperties.routingKeys().notification(), event);
   }
 }

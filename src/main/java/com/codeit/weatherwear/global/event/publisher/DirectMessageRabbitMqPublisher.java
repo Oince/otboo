@@ -21,8 +21,7 @@ public class DirectMessageRabbitMqPublisher {
   @Async("eventExecutor")
   @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
   public void handleDirectMessageReceivedEvent(DirectMessageReceivedEvent event) {
-    rabbitTemplate.convertAndSend(rabbitMqProperties.exchange(),
-        rabbitMqProperties.routingKeys().dmReceived(), event);
+    rabbitTemplate.convertAndSend(rabbitMqProperties.exchanges().dmFanout(), "", event);
   }
 
 }

@@ -4,6 +4,10 @@ import com.codeit.weatherwear.domain.directmessage.dto.DirectMessageDto;
 import com.codeit.weatherwear.global.event.dto.DirectMessageReceivedEvent;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.amqp.core.ExchangeTypes;
+import org.springframework.amqp.rabbit.annotation.Exchange;
+import org.springframework.amqp.rabbit.annotation.Queue;
+import org.springframework.amqp.rabbit.annotation.QueueBinding;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
@@ -13,7 +17,11 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-@RabbitListener(queues = "${spring.rabbitmq.properties.queues.dm-received}")
+@RabbitListener(bindings = @QueueBinding(
+    value = @Queue(value = "", durable = "false", autoDelete = "true", exclusive = "true"),
+    exchange = @Exchange(value = "${spring.rabbitmq.properties.exchanges.dm-fanout}",
+        type = ExchangeTypes.FANOUT)
+))
 public class DirectMessageRabbitMqListener {
 
   private final SimpMessagingTemplate messagingTemplate;

@@ -23,7 +23,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-@RabbitListener(queues = "${spring.rabbitmq.properties.queues.notifications}")
+@RabbitListener(queues = "${spring.rabbitmq.properties.queues.notification}")
 public class NotificationRabbitMqListener {
 
   private final NotificationService notificationService;
