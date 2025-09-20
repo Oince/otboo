@@ -81,6 +81,22 @@ spring:
   cache:
     type: caffeine
 
+  rabbitmq:
+    host: ${RABBITMQ_HOST}
+    port: ${RABBITMQ_PORT}
+    username: ${RABBITMQ_USERNAME}
+    password: ${RABBITMQ_PASSWORD}
+    properties:
+      exchange: "weatherwear.exchange"
+      queues:
+        notifications: "weatherwear.notifications"
+        dm-received: "weatherwear.direct_message_received"
+        sse-sent: "weatherwear.sse_sent"
+      routing-keys:
+        notification: "key.notification"
+        dm-received: "key.dm"
+        sse-sent: "key.sse"
+
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS}
     producer:
