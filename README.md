@@ -90,7 +90,7 @@
 ![Caffeine Cache](https://img.shields.io/badge/Caffeine-6DB33F?style=for-the-badge&logo=java&logoColor=white)
 ![Testcontainers](https://img.shields.io/badge/Testcontainers-333?style=for-the-badge&logo=docker&logoColor=white)
 ![Junit](https://img.shields.io/badge/JUnit-25A162?style=for-the-badge&logoColor=white)
-![Kafka](https://img.shields.io/badge/Apache%20Kafka-000?style=for-the-badge&logo=apachekafka)
+![RabbitMQ](https://img.shields.io/badge/RabbitMQ-FF6600?style=for-the-badge)
 ![QueryDSL](https://img.shields.io/badge/QueryDSL-007ACC?style=for-the-badge&logo=java&logoColor=white)
 ![Google Gemini](https://img.shields.io/badge/google%20gemini-8E75B2?style=for-the-badge&logo=google%20gemini&logoColor=white)
 ![Selenium](https://img.shields.io/badge/-selenium-%43B02A?style=for-the-badge&logo=selenium&logoColor=white)
@@ -123,12 +123,12 @@
 
 ## 👥  팀원 R&R
 
-| <nobr>**팀원**</nobr> | **역할 및 기여**                                                                                                                                                                                                                                                                                                                                                              | 
-|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <nobr>**팀원**</nobr> | **역할 및 기여**                                                                                                                                                                                                                                                                                                                                                                  | 
+|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | <nobr>**한상은**</nobr>  | **팀장** <br/>- 팀 운영 및 일정 관리, 발표 자료 메인 담당 <br/>**피드/ 위치 도메인 담당** <br/> - 피드 등록 및 좋아요, 댓글 CRUD<br/> - Kakao Geo API를 활용한 위경도 기반 행정동 데이터 수집 로직 구현 <br/> **날씨 도메인 담당** <br/>- 기상청 단기예보 API를 활용한 날씨 예보 응답 데이터 파싱 및 변환 로직 구현  <br>- 날씨 데이터 수집 배치 작업 수행 <br/> - 날씨 관련 이벤트 발생 시 알림 전송<br/> **인프라 및 CI/CD 파이프라인 세팅** <br/> - AWS를 이용한 서비스 배포 <br> - Github Acitons를 이용한 CI/CD 파이프라인 세팅 | 
-| <nobr>**강소율**</nobr> | **속성/의상 도메인 담당** <br> - 구매링크 URL에서 옷 정보 추출 시 웹 크로링 구현 <br> **추천 도메인 담당** <br> - 자체 추천 알고리즘 설계 <br> - 추천 LLM 연동 <br> **공통 설정 담당** <br> - 의존성, 예외 처리 초기 세팅                                                                                                                                                                                                                 |
-| <nobr>**이소영**</nobr> | **프로필 관리 도메인 담당** <br> **사용자 인증 및 보안 도메인 담당** <br> - Spring Security 기반 인증, 인가 설계 <br> - 커스텀 인증 필터, 핸들러 설계 <br> - JWT 기반 세션 구조 설계 및 토큰 관리 전략 수립 <br> - OAuth2 소셜 로그인 연동(구글, 카카오) <br> - 이메일 전송 로직 설계                                                                                                                                                                     |
-| <nobr>**허원재**</nobr> | **팔로우 도메인 담당** <br> **DirectMessage 도메인 담당** <br> **알림 도메인 담당** <br> - Kafka 연동 <br> - Confluent Cloud 세팅 및 연동                                                                                                                                                                                                                                                           | 
+| <nobr>**강소율**</nobr> | **속성/의상 도메인 담당** <br> - 구매링크 URL에서 옷 정보 추출 시 웹 크로링 구현 <br> **추천 도메인 담당** <br> - 자체 추천 알고리즘 설계 <br> - 추천 LLM 연동 <br> **공통 설정 담당** <br> - 의존성, 예외 처리 초기 세팅                                                                                                                                                                                                                     |
+| <nobr>**이소영**</nobr> | **프로필 관리 도메인 담당** <br> **사용자 인증 및 보안 도메인 담당** <br> - Spring Security 기반 인증, 인가 설계 <br> - 커스텀 인증 필터, 핸들러 설계 <br> - JWT 기반 세션 구조 설계 및 토큰 관리 전략 수립 <br> - OAuth2 소셜 로그인 연동(구글, 카카오) <br> - 이메일 전송 로직 설계                                                                                                                                                                         |
+| <nobr>**허원재**</nobr> | **팔로우 도메인 담당** <br> **DirectMessage 도메인 담당** <br> **알림 도메인 담당** <br> - RabbitMQ 연동                                                                                                                                                                                                                                                                                           | 
 
 ---
 
@@ -192,16 +192,14 @@ sb01-otboo-team10 # 루트 디렉토리
 
 </details>
 
-### 👗 의상 추천 알고리즘
+*### 👗 의상 추천 알고리즘
 
 <img width="642" height="395" alt="image" src="https://github.com/user-attachments/assets/d54e9f59-c77c-4478-9e45-398021ad344c" />
 
 ### 🌨️ 인프라 아키텍처
 
 ALB → Nginx (80) → Spring Boot (8080) 구조로 구성되며,
-또한, 외부 서비스로는 Kafka(Confluent Cloud)와 S3를 연동하여 데이터 스트리밍과 파일 저장을 처리합니다.
-
-<img width="704" height="357" alt="image" src="https://github.com/user-attachments/assets/9392130e-c796-4881-9c09-b5478eb45885" />
+또한, 외부 서비스로는 RabbitMQ(CloudAMQP)와 S3를 연동하여 데이터 스트리밍과 파일 저장을 처리합니다.
 
 ### ⚙️ 배포 아키텍처
 
