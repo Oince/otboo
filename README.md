@@ -201,6 +201,8 @@ sb01-otboo-team10 # 루트 디렉토리
 ALB → Nginx (80) → Spring Boot (8080) 구조로 구성되며,
 또한, 외부 서비스로는 RabbitMQ(CloudAMQP)와 S3를 연동하여 데이터 스트리밍과 파일 저장을 처리합니다.
 
+<img width="1024" height="535" alt="unnamed" src="https://github.com/user-attachments/assets/f005784f-01cf-4333-91b3-7dbab29674d7" />
+
 ### ⚙️ 배포 아키텍처
 
 <img width="1591" height="679" alt="image" src="https://github.com/user-attachments/assets/85f074e3-3100-49b2-acbe-4aef83b6b558" />
