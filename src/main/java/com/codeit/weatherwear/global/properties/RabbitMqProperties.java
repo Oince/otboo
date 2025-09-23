@@ -16,13 +16,11 @@ public record RabbitMqProperties(
   ) {}
 
   public record Queues(
-      String notification,
-      String dm
+      String notification
   ) {}
 
   public record RoutingKeys(
-      String notification,
-      String dm
+      String notification
   ) {}
 
 }

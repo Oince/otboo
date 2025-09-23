@@ -41,11 +41,6 @@ public class RabbitMqConfig {
     return new Queue(rabbitMqProperties.queues().notification(), true);
   }
 
-  @Bean
-  public Queue dmQueue() {
-    return new Queue(rabbitMqProperties.queues().dm(), true);
-  }
-
   //binding
   @Bean
   public Binding notificationBinding(Queue notificationQueue, TopicExchange notificationExchange) {
@@ -53,14 +48,6 @@ public class RabbitMqConfig {
         .bind(notificationQueue)
         .to(notificationExchange)
         .with(rabbitMqProperties.routingKeys().notification());
-  }
-
-  @Bean
-  public Binding dmBinding(Queue dmQueue, TopicExchange dmExchange) {
-    return BindingBuilder
-        .bind(dmQueue)
-        .to(dmExchange)
-        .with(rabbitMqProperties.routingKeys().dm());
   }
 
   @Bean

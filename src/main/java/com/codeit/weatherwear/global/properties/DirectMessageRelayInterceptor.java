@@ -35,7 +35,7 @@ public class DirectMessageRelayInterceptor implements ChannelInterceptor {
 
   private String convertDestination(String originalDestination) {
     String dmExchange = rabbitMqProperties.exchanges().dm();
-    return originalDestination.replace("/sub/", "/exchange/" + dmExchange + ".");
+    return originalDestination.replace("/sub/", "/exchange/" + dmExchange + "/");
   }
 
 }

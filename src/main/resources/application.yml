@@ -93,10 +93,8 @@ spring:
         sse-fanout: "weatherwear.sse_sent"
       queues:
         notification: "weatherwear.notifications"
-        dm: "weatherwear.dm"
       routing-keys:
         notification: "key.notification"
-        dm: "weatherwear.dm.*"
 
 
 server:
