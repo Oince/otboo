@@ -8,9 +8,9 @@ import static org.mockito.BDDMockito.then;
 import static org.mockito.BDDMockito.willThrow;
 import static org.mockito.Mockito.mock;
 
-import com.codeit.weatherwear.global.exception.s3.S3DeleteException;
-import com.codeit.weatherwear.global.exception.s3.S3PresignedException;
-import com.codeit.weatherwear.global.exception.s3.S3UploadException;
+import com.codeit.weatherwear.global.storage.s3.exception.S3DeleteException;
+import com.codeit.weatherwear.global.storage.s3.exception.S3PresignedException;
+import com.codeit.weatherwear.global.storage.s3.exception.S3UploadException;
 import com.codeit.weatherwear.global.storage.s3.S3ThumbnailImageStorage;
 import java.io.ByteArrayInputStream;
 import java.net.URL;

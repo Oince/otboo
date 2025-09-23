@@ -1,6 +1,7 @@
-package com.codeit.weatherwear.global.event.dto;
+package com.codeit.weatherwear.domain.user.event;
 
 import com.codeit.weatherwear.domain.user.entity.Role;
+import com.codeit.weatherwear.global.event.DomainEvent;
 import java.util.UUID;
 
 public record RoleChangedEvent(

@@ -1,4 +1,4 @@
-package com.codeit.weatherwear.global.exception.s3;
+package com.codeit.weatherwear.global.storage.s3.exception;
 
 import com.codeit.weatherwear.global.exception.CustomException;
 import com.codeit.weatherwear.global.exception.ErrorCode;

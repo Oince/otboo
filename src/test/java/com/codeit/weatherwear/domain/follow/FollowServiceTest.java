@@ -16,7 +16,7 @@ import com.codeit.weatherwear.domain.follow.repository.FollowRepository;
 import com.codeit.weatherwear.domain.user.entity.User;
 import com.codeit.weatherwear.domain.user.repository.UserRepository;
 import com.codeit.weatherwear.global.event.DomainEventPublisher;
-import com.codeit.weatherwear.global.event.dto.NewFollowerEvent;
+import com.codeit.weatherwear.domain.follow.event.NewFollowerEvent;
 import com.codeit.weatherwear.global.exception.ErrorCode;
 import java.time.Instant;
 import java.util.Optional;

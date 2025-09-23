@@ -22,7 +22,7 @@ import com.codeit.weatherwear.domain.recommendation.service.AIRecommendationServ
 import com.codeit.weatherwear.domain.user.entity.User;
 import com.codeit.weatherwear.domain.user.exception.UserNotFoundException;
 import com.codeit.weatherwear.domain.user.repository.UserRepository;
-import com.codeit.weatherwear.global.exception.s3.S3DeleteException;
+import com.codeit.weatherwear.global.storage.s3.exception.S3DeleteException;
 import com.codeit.weatherwear.global.request.SortDirection;
 import com.codeit.weatherwear.global.response.PageResponse;
 import com.codeit.weatherwear.global.storage.ThumbnailImageStorage;

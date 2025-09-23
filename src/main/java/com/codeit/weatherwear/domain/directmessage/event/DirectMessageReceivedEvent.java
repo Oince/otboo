@@ -1,6 +1,7 @@
-package com.codeit.weatherwear.global.event.dto;
+package com.codeit.weatherwear.domain.directmessage.event;
 
 import com.codeit.weatherwear.domain.directmessage.dto.DirectMessageDto;
+import com.codeit.weatherwear.global.event.DomainEvent;
 
 public record DirectMessageReceivedEvent(
     DirectMessageDto directMessageDto

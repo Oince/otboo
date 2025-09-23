@@ -5,7 +5,7 @@ import com.codeit.weatherwear.domain.user.repository.UserRepository;
 import com.codeit.weatherwear.domain.weather.entity.Weather;
 import com.codeit.weatherwear.domain.weather.service.WeatherFetchService;
 import com.codeit.weatherwear.global.event.DomainEventPublisher;
-import com.codeit.weatherwear.global.event.dto.WeatherAlertEvent;
+import com.codeit.weatherwear.domain.weather.event.WeatherAlertEvent;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.List;

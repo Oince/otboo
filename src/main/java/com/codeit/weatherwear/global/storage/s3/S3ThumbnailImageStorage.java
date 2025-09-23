@@ -1,8 +1,8 @@
 package com.codeit.weatherwear.global.storage.s3;
 
-import com.codeit.weatherwear.global.exception.s3.S3DeleteException;
-import com.codeit.weatherwear.global.exception.s3.S3PresignedException;
-import com.codeit.weatherwear.global.exception.s3.S3UploadException;
+import com.codeit.weatherwear.global.storage.s3.exception.S3DeleteException;
+import com.codeit.weatherwear.global.storage.s3.exception.S3PresignedException;
+import com.codeit.weatherwear.global.storage.s3.exception.S3UploadException;
 import com.codeit.weatherwear.global.storage.ThumbnailImageStorage;
 import java.io.IOException;
 import java.net.URI;

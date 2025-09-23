@@ -5,7 +5,7 @@ import com.codeit.weatherwear.domain.directmessage.dto.request.DirectMessageCrea
 import com.codeit.weatherwear.domain.directmessage.dto.request.DirectMessageSearchRequest;
 import com.codeit.weatherwear.domain.directmessage.repository.DirectMessageRepository;
 import com.codeit.weatherwear.global.event.DomainEventPublisher;
-import com.codeit.weatherwear.global.event.dto.DirectMessageReceivedEvent;
+import com.codeit.weatherwear.domain.directmessage.event.DirectMessageReceivedEvent;
 import com.codeit.weatherwear.domain.user.entity.User;
 import com.codeit.weatherwear.domain.user.exception.UserNotFoundException;
 import com.codeit.weatherwear.domain.user.repository.UserRepository;

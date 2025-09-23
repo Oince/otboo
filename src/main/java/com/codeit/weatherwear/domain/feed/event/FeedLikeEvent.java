@@ -1,5 +1,6 @@
-package com.codeit.weatherwear.global.event.dto;
+package com.codeit.weatherwear.domain.feed.event;
 
+import com.codeit.weatherwear.global.event.DomainEvent;
 import java.util.UUID;
 
 public record FeedLikeEvent(

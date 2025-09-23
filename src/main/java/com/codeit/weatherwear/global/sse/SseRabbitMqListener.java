@@ -1,7 +1,5 @@
-package com.codeit.weatherwear.global.event.listener;
+package com.codeit.weatherwear.global.sse;
 
-import com.codeit.weatherwear.global.sse.SseMessage;
-import com.codeit.weatherwear.global.sse.SseService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.ExchangeTypes;

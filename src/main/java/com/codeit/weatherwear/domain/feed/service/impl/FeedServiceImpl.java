@@ -24,7 +24,7 @@ import com.codeit.weatherwear.domain.weather.entity.Weather;
 import com.codeit.weatherwear.domain.weather.mapper.WeatherMapper;
 import com.codeit.weatherwear.domain.weather.repository.WeatherRepository;
 import com.codeit.weatherwear.global.event.DomainEventPublisher;
-import com.codeit.weatherwear.global.event.dto.FolloweeFeedPostedEvent;
+import com.codeit.weatherwear.domain.feed.event.FolloweeFeedPostedEvent;
 import com.codeit.weatherwear.global.response.PageResponse;
 import com.codeit.weatherwear.global.storage.ThumbnailImageStorage;
 import java.util.List;

@@ -16,7 +16,7 @@ import com.codeit.weatherwear.domain.user.entity.User;
 import com.codeit.weatherwear.domain.user.exception.UserNotFoundException;
 import com.codeit.weatherwear.domain.user.repository.UserRepository;
 import com.codeit.weatherwear.global.event.DomainEventPublisher;
-import com.codeit.weatherwear.global.event.dto.NewFeedCommentEvent;
+import com.codeit.weatherwear.domain.feed.event.NewFeedCommentEvent;
 import com.codeit.weatherwear.global.response.PageResponse;
 import java.util.List;
 import java.util.Map;

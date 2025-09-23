@@ -1,6 +1,7 @@
-package com.codeit.weatherwear.global.event.dto;
+package com.codeit.weatherwear.domain.notification.event;
 
 import com.codeit.weatherwear.domain.notification.dto.NotificationDto;
+import com.codeit.weatherwear.global.event.DomainEvent;
 import java.util.List;
 
 public record MultipleNotificationCreatedEvent(

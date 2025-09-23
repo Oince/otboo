@@ -19,7 +19,7 @@ import com.codeit.weatherwear.domain.user.exception.UserNotFoundException;
 import com.codeit.weatherwear.domain.user.mapper.UserMapper;
 import com.codeit.weatherwear.domain.user.repository.UserRepository;
 import com.codeit.weatherwear.global.event.DomainEventPublisher;
-import com.codeit.weatherwear.global.event.dto.RoleChangedEvent;
+import com.codeit.weatherwear.domain.user.event.RoleChangedEvent;
 import com.codeit.weatherwear.global.response.PageResponse;
 import com.codeit.weatherwear.global.storage.ThumbnailImageStorage;
 import java.util.List;

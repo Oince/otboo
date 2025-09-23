@@ -29,7 +29,7 @@ import com.codeit.weatherwear.domain.user.exception.UserNotFoundException;
 import com.codeit.weatherwear.domain.user.repository.UserRepository;
 import com.codeit.weatherwear.domain.weather.entity.Weather;
 import com.codeit.weatherwear.global.event.DomainEventPublisher;
-import com.codeit.weatherwear.global.event.dto.FeedLikeEvent;
+import com.codeit.weatherwear.domain.feed.event.FeedLikeEvent;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.util.List;

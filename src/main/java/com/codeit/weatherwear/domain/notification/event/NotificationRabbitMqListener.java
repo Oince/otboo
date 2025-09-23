@@ -1,17 +1,17 @@
-package com.codeit.weatherwear.global.event.listener;
+package com.codeit.weatherwear.domain.notification.event;
 
 import com.codeit.weatherwear.domain.directmessage.dto.DirectMessageDto;
+import com.codeit.weatherwear.domain.directmessage.event.DirectMessageReceivedEvent;
 import com.codeit.weatherwear.domain.notification.Notification.Level;
 import com.codeit.weatherwear.domain.notification.NotificationService;
-import com.codeit.weatherwear.global.event.dto.ClothAttributeAddedEvent;
-import com.codeit.weatherwear.global.event.dto.ClothAttributeUpdatedEvent;
-import com.codeit.weatherwear.global.event.dto.DirectMessageReceivedEvent;
-import com.codeit.weatherwear.global.event.dto.FeedLikeEvent;
-import com.codeit.weatherwear.global.event.dto.FolloweeFeedPostedEvent;
-import com.codeit.weatherwear.global.event.dto.NewFeedCommentEvent;
-import com.codeit.weatherwear.global.event.dto.NewFollowerEvent;
-import com.codeit.weatherwear.global.event.dto.RoleChangedEvent;
-import com.codeit.weatherwear.global.event.dto.WeatherAlertEvent;
+import com.codeit.weatherwear.domain.clothes.event.ClothAttributeAddedEvent;
+import com.codeit.weatherwear.domain.clothes.event.ClothAttributeUpdatedEvent;
+import com.codeit.weatherwear.domain.feed.event.FeedLikeEvent;
+import com.codeit.weatherwear.domain.feed.event.FolloweeFeedPostedEvent;
+import com.codeit.weatherwear.domain.feed.event.NewFeedCommentEvent;
+import com.codeit.weatherwear.domain.follow.event.NewFollowerEvent;
+import com.codeit.weatherwear.domain.user.event.RoleChangedEvent;
+import com.codeit.weatherwear.domain.weather.event.WeatherAlertEvent;
 import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
