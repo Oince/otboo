@@ -1,6 +1,5 @@
-package com.codeit.weatherwear.global.config;
+package com.codeit.weatherwear.global.config.websocket;
 
-import com.codeit.weatherwear.global.properties.DirectMessageRelayInterceptor;
 import com.codeit.weatherwear.global.properties.RabbitMqConnection;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;

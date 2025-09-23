@@ -1,5 +1,6 @@
-package com.codeit.weatherwear.global.properties;
+package com.codeit.weatherwear.global.config.websocket;
 
+import com.codeit.weatherwear.global.properties.RabbitMqProperties;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.messaging.Message;
@@ -15,6 +16,8 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class DirectMessageRelayInterceptor implements ChannelInterceptor {
 
+  private static final String SUBSCRIBE_DESTINATION_PREFIX = "/sub/";
+
   private final RabbitMqProperties rabbitMqProperties;
 
   @Override
@@ -23,7 +26,7 @@ public class DirectMessageRelayInterceptor implements ChannelInterceptor {
     if (StompCommand.SUBSCRIBE.equals(accessor.getCommand())) {
       String destination = accessor.getDestination();
 
-      if (destination != null && destination.startsWith("/sub/")) {
+      if (destination != null && destination.startsWith(SUBSCRIBE_DESTINATION_PREFIX)) {
         String convertedDestination = convertDestination(destination);
         log.info("preSend: convertedDestination={}", convertedDestination);
         accessor.setDestination(convertedDestination);
@@ -35,7 +38,7 @@ public class DirectMessageRelayInterceptor implements ChannelInterceptor {
 
   private String convertDestination(String originalDestination) {
     String dmExchange = rabbitMqProperties.exchanges().dm();
-    return originalDestination.replace("/sub/", "/exchange/" + dmExchange + "/");
+    return originalDestination.replace(SUBSCRIBE_DESTINATION_PREFIX, "/exchange/" + dmExchange + "/");
   }
 
 }
