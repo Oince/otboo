@@ -4,5 +4,5 @@ import com.codeit.weatherwear.global.event.dto.DomainEvent;
 
 public interface DomainEventPublisher {
 
-  <E extends DomainEvent> void publish(E event);
+  void publish(DomainEvent event);
 }

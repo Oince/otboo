@@ -13,7 +13,7 @@ public class SpringEventPublisher implements DomainEventPublisher{
   private final ApplicationEventPublisher delegate;
 
   @Override
-  public <E extends DomainEvent> void publish(E event) {
+  public void publish(DomainEvent event) {
     delegate.publishEvent(event);
   }
 }
