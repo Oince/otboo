@@ -21,7 +21,7 @@ public class WebSocketController {
   public DirectMessageDto sendDirectMessage(
       @Payload @Valid DirectMessageCreateRequest directMessageCreateRequest
   ) {
-    log.debug("DM 송신");
+    log.debug("DM received: {}", directMessageCreateRequest);
     return directMessageService.create(directMessageCreateRequest);
   }
 }
