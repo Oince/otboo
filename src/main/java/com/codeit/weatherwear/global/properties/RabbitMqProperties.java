@@ -11,16 +11,18 @@ public record RabbitMqProperties(
 
   public record Exchanges(
       String notification,
-      String dmFanout,
+      String dm,
       String sseFanout
   ) {}
 
   public record Queues(
-      String notification
+      String notification,
+      String dm
   ) {}
 
   public record RoutingKeys(
-      String notification
+      String notification,
+      String dm
   ) {}
 
 }

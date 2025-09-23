@@ -89,12 +89,15 @@ spring:
     properties:
       exchanges:
         notification: "weatherwear.notification"
-        dm-fanout: "weatherwear.direct_message_received"
+        dm: "weatherwear.direct_message"
         sse-fanout: "weatherwear.sse_sent"
       queues:
         notification: "weatherwear.notifications"
+        dm: "weatherwear.dm"
       routing-keys:
         notification: "key.notification"
+        dm: "weatherwear.dm.*"
+
 
 server:
   shutdown: graceful

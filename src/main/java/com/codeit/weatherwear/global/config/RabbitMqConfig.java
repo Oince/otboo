@@ -21,13 +21,13 @@ public class RabbitMqConfig {
 
   // exchanges
   @Bean
-  public TopicExchange exchange() {
+  public TopicExchange notificationExchange() {
     return new TopicExchange(rabbitMqProperties.exchanges().notification());
   }
 
   @Bean
-  public FanoutExchange dmFanoutExchange() {
-    return new FanoutExchange(rabbitMqProperties.exchanges().dmFanout());
+  public TopicExchange dmExchange() {
+    return new TopicExchange(rabbitMqProperties.exchanges().dm());
   }
 
   @Bean
@@ -41,13 +41,26 @@ public class RabbitMqConfig {
     return new Queue(rabbitMqProperties.queues().notification(), true);
   }
 
+  @Bean
+  public Queue dmQueue() {
+    return new Queue(rabbitMqProperties.queues().dm(), true);
+  }
+
   //binding
   @Bean
-  public Binding notificationBinding(Queue notificationQueue, TopicExchange exchange) {
+  public Binding notificationBinding(Queue notificationQueue, TopicExchange notificationExchange) {
     return BindingBuilder
         .bind(notificationQueue)
-        .to(exchange)
+        .to(notificationExchange)
         .with(rabbitMqProperties.routingKeys().notification());
+  }
+
+  @Bean
+  public Binding dmBinding(Queue dmQueue, TopicExchange dmExchange) {
+    return BindingBuilder
+        .bind(dmQueue)
+        .to(dmExchange)
+        .with(rabbitMqProperties.routingKeys().dm());
   }
 
   @Bean
