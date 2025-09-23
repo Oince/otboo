@@ -2,7 +2,6 @@ package com.codeit.weatherwear.domain.weather.api;
 
 import com.codeit.weatherwear.domain.weather.exception.WeatherApiRequestException;
 import com.codeit.weatherwear.domain.weather.exception.WeatherApiResponseException;
-import com.codeit.weatherwear.global.properties.WeatherApiProperties;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;

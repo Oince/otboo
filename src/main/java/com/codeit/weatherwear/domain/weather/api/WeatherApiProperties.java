@@ -1,4 +1,4 @@
-package com.codeit.weatherwear.global.properties;
+package com.codeit.weatherwear.domain.weather.api;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
