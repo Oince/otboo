@@ -1,4 +1,4 @@
-package com.codeit.weatherwear.global.properties;
+package com.codeit.weatherwear.global.config.rabbitmq;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

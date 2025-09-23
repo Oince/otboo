@@ -10,7 +10,7 @@ import com.codeit.weatherwear.global.event.dto.NewFeedCommentEvent;
 import com.codeit.weatherwear.global.event.dto.NewFollowerEvent;
 import com.codeit.weatherwear.global.event.dto.RoleChangedEvent;
 import com.codeit.weatherwear.global.event.dto.WeatherAlertEvent;
-import com.codeit.weatherwear.global.properties.RabbitMqProperties;
+import com.codeit.weatherwear.global.config.rabbitmq.RabbitMqProperties;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;

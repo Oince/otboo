@@ -1,6 +1,5 @@
-package com.codeit.weatherwear.global.config;
+package com.codeit.weatherwear.global.config.rabbitmq;
 
-import com.codeit.weatherwear.global.properties.RabbitMqProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.core.Binding;

@@ -1,6 +1,6 @@
 package com.codeit.weatherwear.global.config.websocket;
 
-import com.codeit.weatherwear.global.properties.RabbitMqConnection;
+import com.codeit.weatherwear.global.config.rabbitmq.RabbitMqConnection;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.ChannelRegistration;
