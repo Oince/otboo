@@ -1,4 +1,4 @@
-package com.codeit.weatherwear.global.config.websocket;
+package com.codeit.weatherwear.domain.directmessage.interceptor;
 
 import com.codeit.weatherwear.global.config.rabbitmq.RabbitMqProperties;
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 @RequiredArgsConstructor
-public class DirectMessageRelayInterceptor implements ChannelInterceptor {
+public class DirectMessageSubscriptionInterceptor implements ChannelInterceptor {
 
   private static final String SUBSCRIBE_DESTINATION_PREFIX = "/sub/";
 

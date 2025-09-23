@@ -1,6 +1,7 @@
-package com.codeit.weatherwear.global.config.websocket;
+package com.codeit.weatherwear.global.config;
 
 import com.codeit.weatherwear.global.config.rabbitmq.RabbitMqConnection;
+import com.codeit.weatherwear.domain.directmessage.interceptor.DirectMessageSubscriptionInterceptor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.ChannelRegistration;
@@ -18,7 +19,7 @@ import reactor.netty.tcp.TcpClient;
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
   private final RabbitMqConnection rabbitMqConnection;
-  private final DirectMessageRelayInterceptor interceptor;
+  private final DirectMessageSubscriptionInterceptor interceptor;
 
   @Override
   public void configureMessageBroker(MessageBrokerRegistry registry) {
