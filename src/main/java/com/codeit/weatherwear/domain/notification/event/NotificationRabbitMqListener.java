@@ -2,8 +2,8 @@ package com.codeit.weatherwear.domain.notification.event;
 
 import com.codeit.weatherwear.domain.directmessage.dto.DirectMessageDto;
 import com.codeit.weatherwear.domain.directmessage.event.DirectMessageReceivedEvent;
-import com.codeit.weatherwear.domain.notification.Notification.Level;
-import com.codeit.weatherwear.domain.notification.NotificationService;
+import com.codeit.weatherwear.domain.notification.entity.Notification.Level;
+import com.codeit.weatherwear.domain.notification.service.NotificationService;
 import com.codeit.weatherwear.domain.clothes.event.ClothAttributeAddedEvent;
 import com.codeit.weatherwear.domain.clothes.event.ClothAttributeUpdatedEvent;
 import com.codeit.weatherwear.domain.feed.event.FeedLikeEvent;

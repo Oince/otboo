@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.codeit.weatherwear.domain.follow.dto.FollowDto;
 import com.codeit.weatherwear.domain.follow.dto.FollowSummaryDto;
+import com.codeit.weatherwear.domain.follow.entity.Follow;
 import com.codeit.weatherwear.domain.follow.repository.FollowRepository;
 import com.codeit.weatherwear.domain.user.entity.User;
 import com.codeit.weatherwear.domain.user.repository.UserRepository;

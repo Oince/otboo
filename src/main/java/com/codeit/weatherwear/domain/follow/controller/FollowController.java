@@ -1,6 +1,6 @@
 package com.codeit.weatherwear.domain.follow.controller;
 
-import com.codeit.weatherwear.domain.follow.FollowService;
+import com.codeit.weatherwear.domain.follow.service.FollowService;
 import com.codeit.weatherwear.domain.follow.controller.api.FollowApi;
 import com.codeit.weatherwear.domain.follow.dto.FollowDto;
 import com.codeit.weatherwear.domain.follow.dto.FollowSummaryDto;

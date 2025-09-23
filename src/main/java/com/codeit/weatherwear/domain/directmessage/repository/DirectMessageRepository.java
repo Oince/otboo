@@ -1,6 +1,6 @@
 package com.codeit.weatherwear.domain.directmessage.repository;
 
-import com.codeit.weatherwear.domain.directmessage.DirectMessage;
+import com.codeit.weatherwear.domain.directmessage.entity.DirectMessage;
 import java.util.UUID;
 import org.springframework.data.jpa.repository.JpaRepository;
 

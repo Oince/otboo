@@ -1,6 +1,6 @@
 package com.codeit.weatherwear.domain.follow.dto;
 
-import com.codeit.weatherwear.domain.follow.Follow;
+import com.codeit.weatherwear.domain.follow.entity.Follow;
 import java.time.Instant;
 import java.util.UUID;
 

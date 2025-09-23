@@ -1,6 +1,6 @@
 package com.codeit.weatherwear.domain.follow.repository;
 
-import com.codeit.weatherwear.domain.follow.Follow;
+import com.codeit.weatherwear.domain.follow.entity.Follow;
 import com.codeit.weatherwear.domain.user.entity.User;
 import java.util.List;
 import java.util.UUID;

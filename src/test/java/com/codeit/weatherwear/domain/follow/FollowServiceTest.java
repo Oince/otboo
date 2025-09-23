@@ -10,9 +10,11 @@ import static org.mockito.Mockito.times;
 
 import com.codeit.weatherwear.domain.follow.dto.FollowDto;
 import com.codeit.weatherwear.domain.follow.dto.request.FollowCreateRequest;
+import com.codeit.weatherwear.domain.follow.entity.Follow;
 import com.codeit.weatherwear.domain.follow.exception.FollowDuplicatedException;
 import com.codeit.weatherwear.domain.follow.exception.SelfFollowNotAllowedException;
 import com.codeit.weatherwear.domain.follow.repository.FollowRepository;
+import com.codeit.weatherwear.domain.follow.service.FollowService;
 import com.codeit.weatherwear.domain.user.entity.User;
 import com.codeit.weatherwear.domain.user.repository.UserRepository;
 import com.codeit.weatherwear.global.event.DomainEventPublisher;

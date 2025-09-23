@@ -1,6 +1,6 @@
 package com.codeit.weatherwear.domain.notification.controller;
 
-import com.codeit.weatherwear.domain.notification.NotificationService;
+import com.codeit.weatherwear.domain.notification.service.NotificationService;
 import com.codeit.weatherwear.domain.notification.controller.api.NotificationApi;
 import com.codeit.weatherwear.domain.notification.dto.NotificationDto;
 import com.codeit.weatherwear.domain.notification.dto.request.NotificationSearchRequest;

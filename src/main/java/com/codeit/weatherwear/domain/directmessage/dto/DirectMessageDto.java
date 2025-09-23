@@ -1,6 +1,6 @@
 package com.codeit.weatherwear.domain.directmessage.dto;
 
-import com.codeit.weatherwear.domain.directmessage.DirectMessage;
+import com.codeit.weatherwear.domain.directmessage.entity.DirectMessage;
 import com.codeit.weatherwear.domain.follow.dto.UserSummaryDto;
 import java.time.Instant;
 import java.util.UUID;

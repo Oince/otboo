@@ -1,10 +1,11 @@
-package com.codeit.weatherwear.domain.follow;
+package com.codeit.weatherwear.domain.follow.service;
 
 import com.codeit.weatherwear.domain.follow.dto.FollowDto;
 import com.codeit.weatherwear.domain.follow.dto.FollowSummaryDto;
 import com.codeit.weatherwear.domain.follow.dto.request.FollowCreateRequest;
 import com.codeit.weatherwear.domain.follow.dto.request.FollowerSearchRequest;
 import com.codeit.weatherwear.domain.follow.dto.request.FollowingSearchRequest;
+import com.codeit.weatherwear.domain.follow.entity.Follow;
 import com.codeit.weatherwear.domain.follow.exception.FollowDuplicatedException;
 import com.codeit.weatherwear.domain.follow.repository.FollowRepository;
 import com.codeit.weatherwear.domain.user.entity.User;

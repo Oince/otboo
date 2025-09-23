@@ -1,4 +1,4 @@
-package com.codeit.weatherwear.domain.directmessage;
+package com.codeit.weatherwear.domain.directmessage.entity;
 
 import com.codeit.weatherwear.domain.user.entity.User;
 import jakarta.persistence.Column;

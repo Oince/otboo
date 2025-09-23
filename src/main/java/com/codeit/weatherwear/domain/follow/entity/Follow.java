@@ -1,4 +1,4 @@
-package com.codeit.weatherwear.domain.follow;
+package com.codeit.weatherwear.domain.follow.entity;
 
 import com.codeit.weatherwear.domain.follow.exception.SelfFollowNotAllowedException;
 import com.codeit.weatherwear.domain.user.entity.User;

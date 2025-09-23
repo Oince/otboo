@@ -1,4 +1,4 @@
-package com.codeit.weatherwear.domain.notification;
+package com.codeit.weatherwear.domain.notification.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

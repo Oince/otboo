@@ -2,7 +2,8 @@ package com.codeit.weatherwear.domain.notification;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.codeit.weatherwear.domain.notification.Notification.Level;
+import com.codeit.weatherwear.domain.notification.entity.Notification;
+import com.codeit.weatherwear.domain.notification.entity.Notification.Level;
 import com.codeit.weatherwear.domain.notification.dto.NotificationDto;
 import com.codeit.weatherwear.domain.notification.repository.NotificationRepository;
 import com.codeit.weatherwear.domain.user.entity.User;

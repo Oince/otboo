@@ -2,7 +2,7 @@ package com.codeit.weatherwear.global.sse;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import com.codeit.weatherwear.domain.notification.Notification.Level;
+import com.codeit.weatherwear.domain.notification.entity.Notification.Level;
 import com.codeit.weatherwear.domain.notification.dto.NotificationDto;
 import com.codeit.weatherwear.global.config.ContainerInitializer;
 import java.time.Instant;

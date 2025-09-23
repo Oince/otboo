@@ -1,6 +1,6 @@
 package com.codeit.weatherwear.domain.directmessage.controller;
 
-import com.codeit.weatherwear.domain.directmessage.DirectMessageService;
+import com.codeit.weatherwear.domain.directmessage.service.DirectMessageService;
 import com.codeit.weatherwear.domain.directmessage.dto.DirectMessageDto;
 import com.codeit.weatherwear.domain.directmessage.dto.request.DirectMessageCreateRequest;
 import jakarta.validation.Valid;

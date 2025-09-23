@@ -1,11 +1,12 @@
-package com.codeit.weatherwear.domain.notification;
+package com.codeit.weatherwear.domain.notification.service;
 
 import com.codeit.weatherwear.domain.notification.dto.NotificationDto;
 import com.codeit.weatherwear.domain.notification.dto.request.NotificationSearchRequest;
+import com.codeit.weatherwear.domain.notification.entity.Notification;
 import com.codeit.weatherwear.global.event.DomainEventPublisher;
 import com.codeit.weatherwear.domain.notification.event.MultipleNotificationCreatedEvent;
 import com.codeit.weatherwear.domain.notification.event.NotificationCreatedEvent;
-import com.codeit.weatherwear.domain.notification.Notification.Level;
+import com.codeit.weatherwear.domain.notification.entity.Notification.Level;
 import com.codeit.weatherwear.domain.notification.repository.NotificationRepository;
 import com.codeit.weatherwear.domain.user.exception.UserNotFoundException;
 import com.codeit.weatherwear.domain.user.repository.UserRepository;

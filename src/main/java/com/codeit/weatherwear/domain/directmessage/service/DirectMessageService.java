@@ -1,8 +1,9 @@
-package com.codeit.weatherwear.domain.directmessage;
+package com.codeit.weatherwear.domain.directmessage.service;
 
 import com.codeit.weatherwear.domain.directmessage.dto.DirectMessageDto;
 import com.codeit.weatherwear.domain.directmessage.dto.request.DirectMessageCreateRequest;
 import com.codeit.weatherwear.domain.directmessage.dto.request.DirectMessageSearchRequest;
+import com.codeit.weatherwear.domain.directmessage.entity.DirectMessage;
 import com.codeit.weatherwear.domain.directmessage.repository.DirectMessageRepository;
 import com.codeit.weatherwear.global.event.DomainEventPublisher;
 import com.codeit.weatherwear.domain.directmessage.event.DirectMessageReceivedEvent;
