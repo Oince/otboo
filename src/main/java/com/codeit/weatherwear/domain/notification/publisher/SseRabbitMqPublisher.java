@@ -1,9 +1,10 @@
-package com.codeit.weatherwear.global.sse;
+package com.codeit.weatherwear.domain.notification.publisher;
 
 import com.codeit.weatherwear.domain.notification.dto.NotificationDto;
 import com.codeit.weatherwear.domain.notification.event.MultipleNotificationCreatedEvent;
 import com.codeit.weatherwear.domain.notification.event.NotificationCreatedEvent;
 import com.codeit.weatherwear.global.config.rabbitmq.RabbitMqProperties;
+import com.codeit.weatherwear.global.sse.SseMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;

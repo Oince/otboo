@@ -1,4 +1,4 @@
-package com.codeit.weatherwear.domain.notification.event;
+package com.codeit.weatherwear.domain.notification.publisher;
 
 import com.codeit.weatherwear.domain.clothes.event.ClothAttributeAddedEvent;
 import com.codeit.weatherwear.domain.clothes.event.ClothAttributeUpdatedEvent;

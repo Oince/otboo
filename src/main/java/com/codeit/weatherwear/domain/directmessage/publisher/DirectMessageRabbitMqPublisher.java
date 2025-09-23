@@ -1,6 +1,7 @@
-package com.codeit.weatherwear.domain.directmessage.event;
+package com.codeit.weatherwear.domain.directmessage.publisher;
 
 import com.codeit.weatherwear.domain.directmessage.dto.DirectMessageDto;
+import com.codeit.weatherwear.domain.directmessage.event.DirectMessageReceivedEvent;
 import com.codeit.weatherwear.global.config.rabbitmq.RabbitMqProperties;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
