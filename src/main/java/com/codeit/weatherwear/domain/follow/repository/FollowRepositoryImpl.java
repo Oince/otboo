@@ -1,6 +1,6 @@
 package com.codeit.weatherwear.domain.follow.repository;
 
-import static com.codeit.weatherwear.domain.follow.QFollow.follow;
+import static com.codeit.weatherwear.domain.follow.entity.QFollow.follow;
 
 import com.codeit.weatherwear.domain.follow.dto.FollowDto;
 import com.codeit.weatherwear.domain.follow.dto.FollowSummaryDto;

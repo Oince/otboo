@@ -1,6 +1,6 @@
 package com.codeit.weatherwear.domain.directmessage.repository;
 
-import static com.codeit.weatherwear.domain.directmessage.QDirectMessage.directMessage;
+import static com.codeit.weatherwear.domain.directmessage.entity.QDirectMessage.directMessage;
 
 import com.codeit.weatherwear.domain.directmessage.dto.DirectMessageDto;
 import com.codeit.weatherwear.domain.follow.dto.UserSummaryDto;

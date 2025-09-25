@@ -1,6 +1,6 @@
 package com.codeit.weatherwear.domain.notification.repository;
 
-import static com.codeit.weatherwear.domain.notification.QNotification.notification;
+import static com.codeit.weatherwear.domain.notification.entity.QNotification.notification;
 
 import com.codeit.weatherwear.domain.notification.dto.NotificationDto;
 import com.querydsl.core.types.Projections;
